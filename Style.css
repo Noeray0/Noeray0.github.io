@@ -1,0 +1,14 @@
+body {
+    font-family: Arial;
+    background-size: auto;
+    flex-basis: 80%;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+p{
+    flex-grow: 0;
+}
