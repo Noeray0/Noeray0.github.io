@@ -5,7 +5,7 @@ navigator.geolocation.getCurrentPosition(position => {
   const longitude = position.coords.longitude;
 
   // Fetch the UV index using the user's latitude and longitude
-  fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=apparent_temperature,precipitation,wind_speed_10m,cloud_cover,uv_index,precipitation_probability,direct_radiation`) 
+  fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=apparent_temperature_max,apparent_temperature_min,wind_speed_10m_max,uv_index_max,precipitation_sum,precipitation_probability_max,cloud_cover_mean`) 
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -14,8 +14,6 @@ navigator.geolocation.getCurrentPosition(position => {
     })
     .then(data => {
       console.log(data); // Process the JSON data
-      const uvIndex = data.daily.uv_index_max[2]; // Assuming you want the third day's UV index (index 2)
-      showUV(uvIndex); // Pass the UV index to the showUV function
     })
     .catch(error => {
       console.error('Error fetching data:', error);
