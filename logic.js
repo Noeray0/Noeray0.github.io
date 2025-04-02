@@ -5,7 +5,7 @@ navigator.geolocation.getCurrentPosition(position => {
   const longitude = position.coords.longitude;
 
   // Fetch the UV index using the user's latitude and longitude
-  fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=uv_index_max`) 
+  fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=apparent_temperature,precipitation,wind_speed_10m,cloud_cover,uv_index,precipitation_probability,direct_radiation`) 
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
