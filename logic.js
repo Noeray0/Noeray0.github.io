@@ -6,7 +6,7 @@ navigator.geolocation.getCurrentPosition(position => {
 
   // Function that handles the weather-based decision logic
 function makeWeatherChoices(maxTemperature, minTemperature, maxUVIndex, precipitationChance, windspeed, percipitationsum, cloudcover) {
-  let message = `Max Temp: ${maxTemperature}°C, Min Temp: ${minTemperature}°C <br> Max UV Index: ${maxUVIndex} <br> Precipitation Chance: ${precipitationChance}%, Percipitation: ${percipitationsum}mm <br>  Max Wind Speed: ${windspeed}km/h <br> Cloud Cover: ${cloudcover}%`;
+  let message = `Max Temp: ${maxTemperature}°C, Min Temp: ${minTemperature}°C <br> Max UV Index: ${maxUVIndex} <br> Precipitation Chance: ${precipitationChance}%, Percipitation: ${percipitationsum}mm <br> Max Wind Speed: ${windspeed}km/h <br> Cloud Cover: ${cloudcover}%`;
 
   // Make decisions based on weather conditions
   if (maxTemperature > 20) {
@@ -44,6 +44,10 @@ function makeWeatherChoices(maxTemperature, minTemperature, maxUVIndex, precipit
   }
   if (precipitationChance > 25 && windspeed < 10){
     message += `<br> There is a good chance of percipitation today. Bring an umbrella or a raincoat.`
+  }
+
+  if (cloudcover < 30){
+    message += `<br> It could get quite bright today. Bring some sunglasses or a cap.`
   }
 
   // Display the message on the page
