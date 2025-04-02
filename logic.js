@@ -6,13 +6,44 @@ navigator.geolocation.getCurrentPosition(position => {
 
   // Function that handles the weather-based decision logic
 function makeWeatherChoices(maxTemperature, minTemperature, maxUVIndex, precipitationChance, windspeed, percipitationsum, cloudcover) {
-  let message = `Max Temp: ${maxTemperature}°C, Min Temp: ${minTemperature}°C, Max UV Index: ${maxUVIndex}, Precipitation Chance: ${precipitationChance}%, Percipitation: ${percipitationsum}mm, Wind Speed: ${windspeed}km/h, Cloud Cover: ${cloudcover}%`;
+  let message = `Max Temp: ${maxTemperature}°C, Min Temp: ${minTemperature}°C <br> Max UV Index: ${maxUVIndex} <br> Precipitation Chance: ${precipitationChance}%, Percipitation: ${percipitationsum}mm <br>  Max Wind Speed: ${windspeed}km/h <br> Cloud Cover: ${cloudcover}%`;
 
   // Make decisions based on weather conditions
-  if (maxTemperature > 30) {
-    message += `<br>It's really hot outside. Stay hydrated!`;
-  } else if (maxTemperature < 10) {
-    message += `<br>It's quite cold, consider wearing a jacket!`;
+  if (maxTemperature > 20) {
+    message += `<br> It will be warm outside today. Remember to stay hydrated.`;
+  } 
+
+  if (maxTemperature > 40){
+    message += `<br> It will be very hot today. Plan accordingly.`
+  } else if (maxTemperature > 30){
+    message += `<br> It will be quite hot today. Consider dressing lightly.`
+  } else if (maxTemperature > 25){
+    message += `<br> It will be hot today. Consider wearing something fresh.`
+  }
+  
+  if (minTemperature < -10){
+    message += `<br> It could be quite cold today. Remember to layer up.`
+  } else if (minTemperature < 0){
+    message += `<br> Temperatures could go below 0°C today. Consider bringing some gloves or a scarf.`
+  } else if (minTemperature < 10){
+    message += `<br> It could be cold today. Consider bringing a jacket.`
+  } else if (minTemperature < 15){
+    message += `<br> It could be a bit fresh today. Consider bringing a Pullover.`;
+  }
+
+  if (maxUVIndex > 4){
+    message += `<br> It is imperative you wear sunscreen today.`
+  } else if (maxUVIndex > 3){
+    message += `<br> It is highly recomended you wear sunscreen today.`
+  } else if (maxUVIndex > 2){
+    message += `<br> Rememeber to wear sunscreen today.`
+  }
+
+  if (precipitationChance > 25 && windspeed > 10){
+    message += `<br> There is a good chance of percipitation today and it might get windy. Bring a raincoat.`
+  }
+  if (precipitationChance > 25 && windspeed < 10){
+    message += `<br> There is a good chance of percipitation today. Bring an umbrella or a raincoat.`
   }
 
   // Display the message on the page
