@@ -9,9 +9,23 @@
 </head>
 
 <body>
+    <div class="search-container">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Type a city..." 
+          oninput="getSuggestions()" 
+          autocomplete="off"
+        />
+        <ul id="suggestionsList"></ul>
+      </div>
+
+    <button id="Search_Button">Recommend Apparel </button>
     <h1>What should I wear today?</h1>
 
     <p id="day_1"></p>
+
+    <!--<p id="data_day" onclick="data_day()">Weather data</p>-->
     
     <h1>What should I prepare for the next week?</h1>
 
