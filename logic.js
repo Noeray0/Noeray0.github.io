@@ -139,12 +139,7 @@ document.addEventListener('click', (e) => {
 // Fetch weather (used both for local and selected city)
 function fetchWeather(latitude, longitude) {
   fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=apparent_temperature_max,apparent_temperature_min,wind_speed_10m_max,uv_index_max,precipitation_sum,precipitation_probability_max,cloud_cover_mean&timezone=auto`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
       const todayMessage = makeWeatherChoices(
         data.daily.apparent_temperature_max[0],
