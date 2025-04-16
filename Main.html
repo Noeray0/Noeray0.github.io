@@ -10,17 +10,10 @@
 
 <body>
     <div class="search-container">
-        <input 
-          type="text" 
-          id="searchInput" 
-          placeholder="Type a city..." 
-          oninput="getSuggestions()" 
-          autocomplete="off"
-        />
-        <ul id="suggestionsList"></ul>
-      </div>
-
-    <button id="Search_Button">Recommend Apparel </button>
+    <input type="text" id="cityInput" placeholder="Input your destination..." autocomplete="off">
+    <div id="suggestions"></div>
+    <p id="result"></p>
+    </div>
     <h1>What should I wear today?</h1>
 
     <p id="day_1"></p>
