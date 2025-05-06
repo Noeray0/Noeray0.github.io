@@ -87,6 +87,7 @@ function makeWeatherChoices(maxTemperature, minTemperature, maxUVIndex, precipit
     message += `<br>Temperatures could go below 0°C. Consider bringing gloves or a scarf.`;
     images.innerHTML += `<img src="bilder/gloves.jpg" height="150">`
     images.innerHTML += `<img src="bilder/scarf.png" height="150">`
+    images.innerHTML += `<img src="bilder/jacket.jpg" height="150">`
   }  else if (minTemperature < 10) {
     message += `<br>It could be cold. Consider bringing a jacket.`;
     images.innerHTML += `<img src="bilder/jacket.jpg" height="150">`
