@@ -106,7 +106,7 @@ function makeWeatherChoices(maxTemperature, minTemperature, maxUVIndex, precipit
     message += `<br>Remember to wear sunscreen.`;
   }
 
-  if (precipitationChance > 25 && windspeed > 10) {
+  if (precipitationChance > 25 && windspeed > 20) {
     message += `<br>There is a good chance of precipitation and it might get windy. Bring a raincoat.`;
     images.innerHTML += `<img src="bilder/raincoat.jpg" height="150">`
   }  else if (precipitationChance > 25){
