@@ -72,10 +72,13 @@ function makeWeatherChoices(maxTemperature, minTemperature, maxUVIndex, precipit
 
   if (maxTemperature > 40) {
     message += `<br>It will be very hot. Plan accordingly.`;
+    images.innerHTML += `<img src="bilder/waterbottle.jpg" height="150">`
   }  else if (maxTemperature > 30) {
     message += `<br>It will be quite hot. Consider dressing lightly.`;
+    images.innerHTML += `<img src="bilder/waterbottle.jpg" height="150">`
   }  else if (maxTemperature > 25) {
     message += `<br>It will be hot. Consider wearing something fresh.`;
+    images.innerHTML += `<img src="bilder/waterbottle.jpg" height="150">`
   } else if (maxTemperature > 20) {
     message += `<br>It will be warm outside. Remember to stay hydrated.`;
     images.innerHTML += `<img src="bilder/waterbottle.jpg" height="150">`
@@ -83,6 +86,9 @@ function makeWeatherChoices(maxTemperature, minTemperature, maxUVIndex, precipit
 
   if (minTemperature < -10) {
     message += `<br>It could be quite cold. Remember to layer up.`;
+    images.innerHTML += `<img src="bilder/gloves.jpg" height="150">`
+    images.innerHTML += `<img src="bilder/scarf.png" height="150">`
+    images.innerHTML += `<img src="bilder/jacket.jpg" height="150">`
   }  else if (minTemperature < 0) {
     message += `<br>Temperatures could go below 0°C. Consider bringing gloves or a scarf.`;
     images.innerHTML += `<img src="bilder/gloves.jpg" height="150">`
